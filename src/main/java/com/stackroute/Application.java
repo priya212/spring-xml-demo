@@ -12,16 +12,25 @@ import org.springframework.core.io.ClassPathResource;
 public class Application {
     public static void main( String[] args ) {
         System.out.println("Using Application Context");
+
         ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
         Movie movie1=(Movie)context.getBean("movie");
-        //System.out.println(movie1);
-        System.out.println(movie1.getId()+" "+movie1.getActor()+" acted in : "+movie1.getMovieName());
+        System.out.println(movie1.getId()+" "+movie1.getActor()+ " acted in : "+movie1.getMovieName());
 
-        System.out.println("Using XmlBeanFactory");
-        Resource resource=new ClassPathResource("beans.xml");
-        BeanFactory factory=new XmlBeanFactory(resource);
-        Movie m2=(Movie)factory.getBean("movie");
-        // System.out.println(m2);
-        System.out.println(movie1.getId()+" "+movie1.getActor()+" acted in : "+movie1.getMovieName());
+        Movie movie2=(Movie)context.getBean("movie1");
+        System.out.println(movie2.getId()+" "+movie2.getActor()+ " acted in : "+movie2.getMovieName());
+
+        Movie movie3=(Movie)context.getBean("movie2");
+        System.out.println(movie3.getId()+" "+movie3.getActor()+ " acted in : "+movie3.getMovieName());
+
+        Movie movie5=(Movie)context.getBean("movie1");
+        System.out.println(movie2==movie5);
+
+        // testing bean scope
+        ApplicationContext context1=new ClassPathXmlApplicationContext("beans.xml");
+        Movie movie4=(Movie)context.getBean("movie2");
+        System.out.println(movie3==movie4);
+
+
     }
 }
