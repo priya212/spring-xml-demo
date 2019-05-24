@@ -43,5 +43,9 @@
 
     </bean>
 
+    <bean id="beanPostProcessor" class="com.stackroute.demo.BeanPostProcessorDemo">
+
+    </bean>
+
 
 </beans>
