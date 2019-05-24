@@ -9,6 +9,7 @@ public class Application {
         ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
         Movie movie1=(Movie)context.getBean("movie");
         System.out.println(movie1.getActor().getName()+ " acted in: "+movie1.getMovieName());
-
+        ClassPathXmlApplicationContext cxt=(ClassPathXmlApplicationContext)context;
+        cxt.close();
     }
 }

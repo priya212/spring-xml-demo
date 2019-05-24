@@ -37,9 +37,11 @@
 
     <bean id="resourceLoaderAware" class="com.stackroute.awareinterface.ResourceLoaderAwareDemo">
 
-
     </bean>
 
+    <bean id="beanLifeCycle" class="com.stackroute.demo.BeanLifeCycleDemo" init-method="customInit" destroy-method="customDestroy">
+
+    </bean>
 
 
 </beans>
