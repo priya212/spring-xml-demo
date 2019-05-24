@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-beans-3.0.xsd">
-    <bean name="actor1" class="com.stackroute.domain.Actor">
+    <bean name="actor" class="com.stackroute.domain.Actor">
         <property name="name" value="Hritik" />
         <property name="gender" value="Male" />
         <property name="age" value="40" />
@@ -20,36 +20,17 @@
         <constructor-arg index="1" value="Female" />
         <constructor-arg index="2" value="30" />
     </bean>
-    <bean id="actor3" class="com.stackroute.domain.Actor">
-        <constructor-arg type="java.lang.String" value="Arjun" />
-        <constructor-arg type="java.lang.String" value="Male" />
-        <constructor-arg type="int" value="42" />
+
+    <bean id="movie" class="com.stackroute.domain.Movie" autowire="byName">
+        <property name="id" value="1"/>
+        <property name="movieName" value="Jodha Akbar"/>
     </bean>
 
-    <bean id="movie" class="com.stackroute.domain.Movie" >
-        <constructor-arg name="id" value="1"/>
-        <constructor-arg name="movieName" value="Jodha Akbar"/>
-        <constructor-arg ref="actor1" />
-    </bean>
+    <!--<bean id="movie1" class="com.stackroute.domain.Movie" autowire="byType">
+        <property name="id" value="2"/>
+        <property name="movieName" value="Veer Zaara"/>
+    </bean>-->
 
-
-    <bean id="movie1" class="com.stackroute.domain.Movie">
-        <constructor-arg name="id" value="2"/>
-        <constructor-arg name="movieName" value="Veer Zaara"/>
-        <constructor-arg ref="actor2" />
-    </bean>
-
-    <bean id="movie2" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg name="id" value="4"/>
-        <constructor-arg name="movieName" value="2 states"/>
-        <constructor-arg ref="actor3" />
-    </bean>
-
-    <bean name="movieA, movieB" class="com.stackroute.domain.Movie">
-        <constructor-arg name="id" value="5"/>
-        <constructor-arg name="movieName" value="Kal ho na ho"/>
-        <constructor-arg ref="actor2" />
-    </bean>
 
 
 </beans>
